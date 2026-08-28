@@ -1,13 +1,9 @@
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (
-    QMainWindow,
-    QPushButton,
-    QVBoxLayout,
-    QWidget,
-    QLabel,
-    QFrame,
-)
-from workers import BaseWorker, CpuTempWorker, PingWorker, FanWorker, RamWorker, DiskWorker, CpuUsageWorker
+    QMainWindow, QPushButton, QVBoxLayout,
+    QWidget, QLabel, QFrame, )
+from workers import ( BaseWorker, CpuTempWorker, PingWorker, FanWorker, RamWorker, 
+DiskWorker, CpuUsageWorker, NetworkTrafficWorker )
 
 
 class MainWindow(QMainWindow):
@@ -65,6 +61,7 @@ class MainWindow(QMainWindow):
             RamWorker(row_index=3, interval=1.0),
             DiskWorker(row_index=4, interval=1.0),
             CpuUsageWorker(row_index=5, interval=1.0),
+            NetworkTrafficWorker(row_index=6, interval=1.0),
         ]
 
         # Подключение сигналов и запуск
