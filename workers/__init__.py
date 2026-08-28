@@ -6,4 +6,8 @@ from .ram_worker import RamWorker
 from .disk_worker import DiskWorker 
 from .cpu_usage_worker import CpuUsageWorker
 from .network_worker import NetworkTrafficWorker
-__all__ = ["BaseWorker", "CpuTempWorker", "PingWorker", "FanWorker", "RamWorker", "DiskWorker", "CpuUsageWorker", "NetworkTrafficWorker"]
+from .random_worker import RandomDataWorker
+
+
+__all__ = ["BaseWorker", "CpuTempWorker", "PingWorker", "FanWorker", "RamWorker", 
+           "DiskWorker", "CpuUsageWorker", "NetworkTrafficWorker", "RandomDataWorker"]
