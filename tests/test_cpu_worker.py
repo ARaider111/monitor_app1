@@ -76,5 +76,4 @@ def test_cpu_temperature_fallback_from_cpu_load(monkeypatch):
 
     result = worker.fetch_data()
 
-    # 40 + (50 * 0.4) = 60
     assert result == "Температура CPU: 60.0 °C (WSL эмуляция | Загрузка: 50.0%)"
