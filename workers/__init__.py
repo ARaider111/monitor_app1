@@ -8,6 +8,7 @@ from .cpu_usage_worker import CpuUsageWorker
 from .network_worker import NetworkTrafficWorker
 from .random_worker import RandomDataWorker
 from .process_worker import ProcessWorker
+from .cpu_frequency_worker import CpuFrequencyWorker
 
 __all__ = ["BaseWorker", "CpuTempWorker", "PingWorker", "FanWorker", "RamWorker", 
-           "DiskWorker", "CpuUsageWorker", "NetworkTrafficWorker", "RandomDataWorker", "ProcessWorker"]
+           "DiskWorker", "CpuUsageWorker", "NetworkTrafficWorker", "RandomDataWorker", "ProcessWorker", "CpuFrequencyWorker"]
