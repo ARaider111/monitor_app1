@@ -4,4 +4,6 @@ from .ping_worker import PingWorker
 from .fan_worker import FanWorker
 from .ram_worker import RamWorker
 from .disk_worker import DiskWorker 
-__all__ = ["BaseWorker", "CpuTempWorker", "PingWorker", "FanWorker", "RamWorker", "DiskWorker"]
+from .cpu_usage_worker import CpuUsageWorker
+
+__all__ = ["BaseWorker", "CpuTempWorker", "PingWorker", "FanWorker", "RamWorker", "DiskWorker", "CpuUsageWorker"]

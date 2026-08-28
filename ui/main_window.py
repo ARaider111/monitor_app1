@@ -7,7 +7,7 @@ from PySide6.QtWidgets import (
     QLabel,
     QFrame,
 )
-from workers import BaseWorker, CpuTempWorker, PingWorker, FanWorker, RamWorker, DiskWorker
+from workers import BaseWorker, CpuTempWorker, PingWorker, FanWorker, RamWorker, DiskWorker, CpuUsageWorker
 
 
 class MainWindow(QMainWindow):
@@ -63,7 +63,8 @@ class MainWindow(QMainWindow):
             PingWorker(row_index=1, host="8.8.8.8", interval=2.0),
             FanWorker(row_index=2, interval=1.5),
             RamWorker(row_index=3, interval=1.0),
-            DiskWorker(row_index=4, interval=1.0)
+            DiskWorker(row_index=4, interval=1.0),
+            CpuUsageWorker(row_index=5, interval=1.0),
         ]
 
         # Подключение сигналов и запуск
@@ -73,12 +74,19 @@ class MainWindow(QMainWindow):
 
     def _stop_all_workers(self):
         for worker in self.workers:
+            try:
+                worker.data_updated.disconnect(self.update_row_data)
+            except Exception:
+                pass
             worker.stop()
+
+        for worker in self.workers:
             worker.quit()
             worker.wait()
+            
         self.workers.clear()
 
-        for i, lbl in enumerate(self.labels):
+        for lbl in self.labels:
             lbl.setText("Остановлен")
 
     @Slot(int, str)
