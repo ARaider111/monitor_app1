@@ -7,7 +7,7 @@ from .disk_worker import DiskWorker
 from .cpu_usage_worker import CpuUsageWorker
 from .network_worker import NetworkTrafficWorker
 from .random_worker import RandomDataWorker
-
+from .process_worker import ProcessWorker
 
 __all__ = ["BaseWorker", "CpuTempWorker", "PingWorker", "FanWorker", "RamWorker", 
-           "DiskWorker", "CpuUsageWorker", "NetworkTrafficWorker", "RandomDataWorker"]
+           "DiskWorker", "CpuUsageWorker", "NetworkTrafficWorker", "RandomDataWorker", "ProcessWorker"]
