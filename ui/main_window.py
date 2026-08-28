@@ -7,7 +7,7 @@ from PySide6.QtWidgets import (
     QLabel,
     QFrame,
 )
-from workers import BaseWorker, CpuTempWorker, PingWorker
+from workers import BaseWorker, CpuTempWorker, PingWorker, FanWorker
 
 
 class MainWindow(QMainWindow):
@@ -61,6 +61,7 @@ class MainWindow(QMainWindow):
         self.workers = [
             CpuTempWorker(row_index=0, interval=1.0),
             PingWorker(row_index=1, host="8.8.8.8", interval=2.0),
+            FanWorker(row_index=2, interval=1.5)
         ]
 
         # Подключение сигналов и запуск
