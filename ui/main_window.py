@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
 
         # Создание строк вывода
         for i in range(self.TOTAL_ROWS):
-            lbl = QLabel("Остановлен", self)
+            lbl = QLabel("Не запущен", self)
             lbl.setFrameStyle(QFrame.Shape.StyledPanel | QFrame.Shadow.Sunken)
             lbl.setStyleSheet("padding: 3px;")
             self.labels.append(lbl)
@@ -86,8 +86,7 @@ class MainWindow(QMainWindow):
             
         self.workers.clear()
 
-        for lbl in self.labels:
-            lbl.setText("Остановлен")
+        
 
     @Slot(int, str)
     def update_row_data(self, row_index: int, text: str):
